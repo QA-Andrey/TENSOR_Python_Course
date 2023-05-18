@@ -27,7 +27,8 @@ def everything_for_your_cat(cats_data):
         else:
             my_dict[v[2] + ' ' + v[3]] = v[0] + ', ' + str(v[1])
     for k, z in my_dict.items():
-        our_str = our_str + '\n' + (k + ': ' + str(v))
+        our_str = our_str + (k + ': ' + str(z)) + '\n'
+
     return our_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
