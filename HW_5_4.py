@@ -14,33 +14,30 @@
 
 
 def scrabble(word):
-    list_1 = ["а", "в", "е", "ё", "и", "н", "о", "р", "с", "т"]
-    list_2 = ["д", "к", "л", "м", "п", "у"]
-    list_3 = ["б", "г", "ь", "я"]
-    list_4 = ["й", "ы"]
-    list_5 = ["ж", "з", "х", "ц", "ч"]
-    list_6 = ["ф", "ш", "э", "ю"]
-    list_7 = ["щ"]
-    list_8 = ["ъ"]
+    """
+    Считаем кол-во очков, полученное за слово в соответствии с очками за каждую букву в нем.
+
+    :param word: Входящее слово для подсчета очков.
+    :return: Количество очков за слово.
+    """
+    my_dict = {
+        1: ["а", "в", "е", "ё", "и", "н", "о", "р", "с", "т"],
+        2: ["д", "к", "л", "м", "п", "у"],
+        3: ["б", "г", "ь", "я"],
+        4: ["й", "ы"],
+        5: ["ж", "з", "х", "ц", "ч"],
+        8: ["ф", "ш", "э", "ю"],
+        10: ["щ"],
+        15: ["ъ"]
+    }
     points = 0
 
-    for i in word:
-        if i in list_1:
-            points = points + 1
-        if i in list_2:
-            points = points + 2
-        if i in list_3:
-            points = points + 3
-        if i in list_4:
-            points = points + 4
-        if i in list_5:
-            points = points + 5
-        if i in list_6:
-            points = points + 8
-        if i in list_7:
-            points = points + 10
-        if i in list_8:
-            points = points + 15
+    for letter in word:
+        for key, value in my_dict.items():
+            for index, value_2 in enumerate(value):
+                if letter in value_2:
+                    points = points + key
+
     return points
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
